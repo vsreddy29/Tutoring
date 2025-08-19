@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=3.0">
+    <title>Supportive Learning Guidance</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 8mm;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            padding: 2mm;
+            min-height: 100vh;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .pamphlet {
+            background: white;
+            border-radius: 8px;
+            padding: 6mm;
+            max-width: 190mm;
+            height: auto;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #f093fb 100%);
+            color: white;
+            padding: 6mm;
+            border-radius: 6px;
+            margin-bottom: 4mm;
+        }
+        
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 3mm;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #FFD93D;
+            margin-bottom: 3mm;
+        }
+        
+        .contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 15mm;
+            margin-top: 3mm;
+        }
+        
+        .contact {
+            font-size: 13px;
+            font-weight: bold;
+            color: #FFD93D;
+        }
+        
+        .section {
+            margin-bottom: 3mm;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3mm;
+        }
+        
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3mm;
+            margin-bottom: 4mm;
+        }
+        
+        .subject {
+            border: 1px solid #4ecdc4;
+            border-radius: 4px;
+            padding: 3mm;
+            text-align: center;
+        }
+        
+        .subject-icon {
+            font-size: 16px;
+            margin-bottom: 2mm;
+        }
+        
+        .subject-name {
+            font-size: 13px;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 2mm;
+        }
+        
+        .subject-text {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.3;
+        }
+        
+        .benefits {
+            background: #f8fafc;
+            padding: 3mm;
+            border-radius: 4px;
+            margin-bottom: 2mm;
+        }
+        
+        .benefits-title {
+            font-size: 14px;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3mm;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 2mm;
+            margin-bottom: 2mm;
+            font-size: 12px;
+        }
+        
+        .check {
+            color: #4ecdc4;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .intro {
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 4mm;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .location {
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            color: white;
+            padding: 2mm;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 2mm;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+            color: white;
+            padding: 2mm;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1mm;
+                font-size: 14px;
+            }
+            
+            .pamphlet {
+                padding: 4mm;
+                border-radius: 6px;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .header {
+                padding: 4mm;
+                margin-bottom: 3mm;
+            }
+            
+            .title {
+                font-size: 20px;
+                margin-bottom: 2mm;
+            }
+            
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 2mm;
+            }
+            
+            .contact-row {
+                flex-direction: column;
+                gap: 8px;
+                margin-top: 2mm;
+            }
+            
+            .contact {
+                font-size: 14px;
+            }
+            
+            .subjects {
+                grid-template-columns: 1fr;
+                gap: 2mm;
+                margin-bottom: 3mm;
+            }
+            
+            .subject {
+                padding: 2mm;
+            }
+            
+            .subject-icon {
+                font-size: 18px;
+                margin-bottom: 1mm;
+            }
+            
+            .subject-name {
+                font-size: 14px;
+                margin-bottom: 1mm;
+            }
+            
+            .subject-text {
+                font-size: 12px;
+            }
+            
+            .benefits {
+                padding: 3mm;
+                margin-bottom: 2mm;
+            }
+            
+            .benefits-title {
+                font-size: 15px;
+                margin-bottom: 2mm;
+            }
+            
+            .benefit {
+                margin-bottom: 1mm;
+                font-size: 13px;
+            }
+            
+            .intro {
+                font-size: 13px;
+                margin-bottom: 3mm;
+            }
+            
+            .location {
+                font-size: 13px;
+                padding: 2mm;
+                margin-bottom: 2mm;
+            }
+            
+            .cta {
+                font-size: 14px;
+                padding: 3mm;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5mm;
+                font-size: 15px;
+            }
+            
+            .pamphlet {
+                padding: 3mm;
+                border-radius: 4px;
+            }
+            
+            .header {
+                padding: 3mm;
+                margin-bottom: 2mm;
+            }
+            
+            .title {
+                font-size: 18px;
+                line-height: 1.2;
+            }
+            
+            .subtitle {
+                font-size: 12px;
+            }
+            
+            .contact-row {
+                gap: 6px;
+            }
+            
+            .contact {
+                font-size: 13px;
+            }
+            
+            .section-title {
+                font-size: 15px;
+                margin-bottom: 2mm;
+            }
+            
+            .subjects {
+                gap: 1.5mm;
+                margin-bottom: 2mm;
+            }
+            
+            .subject {
+                padding: 2mm;
+            }
+            
+            .subject-icon {
+                font-size: 16px;
+                margin-bottom: 1mm;
+            }
+            
+            .subject-name {
+                font-size: 13px;
+                margin-bottom: 1mm;
+            }
+            
+            .subject-text {
+                font-size: 11px;
+                line-height: 1.2;
+            }
+            
+            .benefits {
+                padding: 2mm;
+                margin-bottom: 1mm;
+            }
+            
+            .benefits-title {
+                font-size: 14px;
+                margin-bottom: 1mm;
+            }
+            
+            .benefit {
+                margin-bottom: 1mm;
+                font-size: 12px;
+                gap: 1mm;
+            }
+            
+            .intro {
+                font-size: 12px;
+                margin-bottom: 2mm;
+                line-height: 1.3;
+            }
+            
+            .location {
+                font-size: 12px;
+                padding: 2mm;
+                margin-bottom: 1mm;
+            }
+            
+            .cta {
+                font-size: 13px;
+                padding: 2mm;
+            }
+        }
+
+        @media print {
+            body {
+                background: linear-gradient(135deg, #667eea 0%, #f093fb 100%) !important;
+                padding: 0 !important;
+            }
+            
+            .pamphlet {
+                box-shadow: none;
+                height: auto;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="pamphlet">
+        <!-- Header -->
+        <div class="header">
+            <div style="font-size: 20px;">📚</div>
+            <h1 class="title">Supportive Learning Guidance</h1>
+            <p class="subtitle">✨ Excellence Through Personalized Education ✨</p>
+            <div class="contact-row">
+                <div>📞 <span class="contact">404-804-0774</span></div>
+                <div>📧 <span class="contact">vsreddy29@gmail.com</span></div>
+            </div>
+        </div>
+        
+        <!-- Introduction -->
+        <div class="intro">
+            For students requiring additional academic support or those pursuing educational excellence, my one-on-one tutoring sessions offer specialized instruction and personalized learning strategies tailored to each individual's academic needs.
+        </div>
+        
+        <!-- Subjects -->
+        <div class="section">
+            <h2 class="section-title">🎯 Academic Subjects</h2>
+            <div class="subjects">
+                <div class="subject">
+                    <div class="subject-icon">🔢</div>
+                    <div class="subject-name">Mathematics</div>
+                    <div class="subject-text">Elementary through middle school with problem-solving focus</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-icon">🔬</div>
+                    <div class="subject-name">General Science</div>
+                    <div class="subject-text">Chemistry, Physics with practical applications</div>
+                </div>
+                <div class="subject">
+                    <div class="subject-icon">📖</div>
+                    <div class="subject-name">English Arts</div>
+                    <div class="subject-text">Reading, grammar, and composition skills</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="benefits">
+            <h3 class="benefits-title">🌟 Why Choose Me?</h3>
+            <div class="benefit">
+                <span class="check">✓</span>
+                <span>Experienced teacher who works with each student's unique learning style</span>
+            </div>
+            <div class="benefit">
+                <span class="check">✓</span>
+                <span>Personalized lessons that match your child's needs and goals</span>
+            </div>
+            <div class="benefit">
+                <span class="check">✓</span>
+                <span>Regular progress check-ins to help students keep improving</span>
+            </div>
+            <div class="benefit">
+                <span class="check">✓</span>
+                <span>Encouraging atmosphere where students feel comfortable asking questions</span>
+            </div>
+        </div>
+        
+        <!-- Location -->
+        <div class="location">
+            📍 Professional tutoring services available in the Fishers area
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="cta">
+            🌟 Limited enrollment opportunities — Schedule your consultation today! 🌟
+        </div>
+    </div>
+</body>
+</html>
